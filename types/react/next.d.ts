@@ -112,6 +112,18 @@ declare module '.' {
     }
 
     /**
+     * Optional config param to useTransition with timeoutMs
+     *
+     * @see https://reactjs.org/docs/concurrent-mode-reference.html#usetransition
+     */
+    export interface TransitionConfig {
+        /**
+         * @param config An optional object with `timeoutMs`
+         */
+        timeoutMs?: number;
+    }
+
+    /**
      * Returns a deferred version of the value that may “lag behind” it for at most `timeoutMs`.
      *
      * This is commonly used to keep the interface responsive when you have something that renders immediately
@@ -142,7 +154,7 @@ declare module '.' {
      *
      * @see https://reactjs.org/docs/concurrent-mode-reference.html#usetransition
      */
-    export function useTransition(): [boolean, TransitionStartFunction];
+    export function useTransition(config?: TransitionConfig): [boolean, TransitionStartFunction];
 
     /**
      * Similar to `useTransition` but allows uses where hooks are not available.
